@@ -1,19 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <style>
+    .margin-bottom {
+      margin-bottom: 10px;
+    }
+
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+
+    body {
+      margin-bottom: 60px; 
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 0 15px;
+    }
+  </style>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-    <p>This is a <b>test</b> page.</p>
-    <img src=pps.png width=300>
+  <main class="container">
+    <h1>PPS Yard Sale</h1>  
+    <p class="text-muted">2022</p><br>
+    <form id="helloForm" method="POST" enctype="multipart/form-data" class="form-horizontal needs-validation"
+      novalidate>
+      <div class="form-group row margin-bottom">
+        <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="firstName" id="firstName"  maxlength="50" required>
+        </div>
+      </div>
+      <div class="form-group row margin-bottom">
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="lastName" id="lastName"  maxlength="50" required>
+        </div>
+      </div>
+      <div class="form-group">  <!-- this field will hold google recaptcha_response -->
+        <input type="hidden" name="recaptcha_response" class="form-control" value="" id="recaptchaResponse">
+      </div>
+    </form>
+    <div id="error" class="alert alert-danger alert-dismissible" style="display: none" role="alert">
+      There was a problem, please try again in a a bit
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="button" id="submit" name="submit" class="btn btn-primary">Salute Thanos</button>
+      </div>
+      <div class="col">
+        <div class="spinner-border text-primary d-none" id="spinner" role="status">   </div>
+      </div>
+    </div>
+    <br>
+    <div id="snapResult" class="alert" role="alert"></div>
   </main>
-</body>
+  <footer class="footer">
+    <div class="container">
+      <img src=pps.png width=300>
+    </div>
+  </footer>
 
+</body>
 </html>
